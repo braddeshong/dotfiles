@@ -1,7 +1,5 @@
 # fugitive.vim
 
-Test foo stuff.
-
 I'm not going to lie to you; fugitive.vim may very well be the best
 Git wrapper of all time.  Check out these features:
 
