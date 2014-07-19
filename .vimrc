@@ -2,6 +2,10 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle
 
+let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
+execute "set rtp+=".s:ocamlmerlin."/vim"
+execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+
 call vundle#rc()
 
 Bundle 'gmaric/vundle'
@@ -14,13 +18,15 @@ Bundle 'bling/vim-airline'
 Bundle 'sukima/xmledit'
 Bundle 'tpope/vim-surround'
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 execute pathogen#infect()
 syntax enable
 
 let g:solarized_termtrans = 1 
 colorscheme solarized
 
+set t_Co=256
 set background=dark
 set shiftwidth=4
 set tabstop=4
@@ -47,4 +53,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+nmap <silent> ]b :bn<CR>
+nmap <silent> [b :bp<CR>
+
 map <F2> :NERDTreeToggle<CR>
+
+set tags=~/Projects/linux/tags
