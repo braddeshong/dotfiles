@@ -1,27 +1,53 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call pathogen#infect()
+call pathogen#helptags()
+call vundle#begin()
 
-let s:ocamlmerlin=substitute(system('opam config var share'),'\n$','','''') .  "/ocamlmerlin"
-execute "set rtp+=".s:ocamlmerlin."/vim"
-execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'sukima/xmledit'
 
-call vundle#rc()
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
 
-Bundle 'gmaric/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nvie/vim-flake8'
-Bundle 'klen/python-mode'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'sukima/xmledit'
-Bundle 'tpope/vim-surround'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
-filetype plugin on
-filetype indent on
-execute pathogen#infect()
-syntax enable
+filetype plugin indent on
+syntax on
+
+set number
 
 let g:solarized_termtrans = 1 
 colorscheme solarized
@@ -34,19 +60,6 @@ set smartindent
 set incsearch
 set expandtab
 
-"Line numbers
-set number
-
-"Show 80 char column
-"set colorcolumn=80
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
-
-"Remap Ctrl-S to save
-noremap <silent> <C-S> :update<CR>
-vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
-
 "Disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -55,7 +68,3 @@ noremap <Right> <Nop>
 
 nmap <silent> ]b :bn<CR>
 nmap <silent> [b :bp<CR>
-
-map <F2> :NERDTreeToggle<CR>
-
-set tags=~/Projects/linux/tags
