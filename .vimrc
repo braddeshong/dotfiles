@@ -68,3 +68,5 @@ noremap <Right> <Nop>
 
 nmap <silent> ]b :bn<CR>
 nmap <silent> [b :bp<CR>
+
+map <F2> :NERDTreeToggle<CR>
