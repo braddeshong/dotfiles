@@ -12,7 +12,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'sukima/xmledit'
-
+Plugin 'ervandew/supertab.git'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -44,13 +44,15 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-filetype plugin indent on
 syntax on
 
 set number
 
 let g:solarized_termtrans = 1 
 colorscheme solarized
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:jedi#popup_on_dot = 0
 
 set t_Co=256
 set background=dark
