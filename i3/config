@@ -129,8 +129,17 @@ exec --no-startup-id feh --bg-fill ~/Projects/wallpaper/wp2231154.png
 # Lock screen
 bindsym Control+Mod1+l exec i3lock -c 001122
 
+# Scratch pad settings
 bindsym Mod4+Shift+minus move scratchpad
 bindsym Control+grave scratchpad show
+
+#Volume Settings
+#pactl list sinks to get sink number
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 4 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 4 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 4 toggle # mute sound
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
