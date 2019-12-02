@@ -125,6 +125,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # set background wallpaper
 exec --no-startup-id feh --bg-fill ~/Projects/wallpaper/wp2231154.png
+exec --no-startup-id nm-applet
 
 # Lock screen
 bindsym Control+Mod1+l exec i3lock -c 001122
